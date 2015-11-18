@@ -1,0 +1,217 @@
+<head>
+  <title>Earth/Sky</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Journal Tasks ({{incompleteCount}})</h1>
+
+      <label class="hide-completed">
+        <input type="checkbox" checked="{{hideCompleted}}" />
+        Hide Completed Tasks
+      </label>
+
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+    </header>
+
+    <div class="list">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Journal Entry 1</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div contentEditable="true" class="editable">
+         3 Moon Observations, 3 Sun Observations, 1 Constellation Observation
+        </div>
+
+        <div class="buttons">
+          <button>Save</button>
+          <button>Finished</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Journal Entry 2</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Journal Entry 3</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+  </div> 
+</div>
+
+  <div class="footer">
+    <button>Help</button>
+    <button>Resources</button>
+    <button>Source Code</button>
+    <h4> Developed by Sarabeth Jaffe </h4> </div>
+  </div>
+
+
+</body>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+ <button class="delete">&times;</button> 
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+<!--     {{#if isOwner}}
+      <button class="toggle-private">
+        {{#if private}}
+          Private
+        {{else}}
+          Public
+        {{/if}}
+      </button>
+    {{/if}} -->
+
+   <span class="text">{{text}}</span> 
+  </li>
+</template>
+
+<template name="week2">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 2</span> 
+  </li>
+</template>
+
+<template name="week3">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 3</span> 
+  </li>
+</template>
+
+<template name="week4">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 4</span> 
+  </li>
+</template>
+
+<template name="week5">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 5</span> 
+  </li>
+</template>
+
+<template name="week6">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 6</span> 
+  </li>
+</template>
+
+<template name="week7">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 7</span> 
+  </li>
+</template>
+
+<template name="week8">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 8</span> 
+  </li>
+</template>
+
+<template name="week9">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 9</span> 
+  </li>
+</template>
+
+<template name="week10">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 10</span> 
+  </li>
+</template>
+
+<template name="week11">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Journal Week 11</span> 
+  </li>
+</template>
+
+<template name="special">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Special Occurrence</span> 
+  </li>
+</template>
+
+<template name="observatory">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <!--  <button class="delete">&times;</button> -->
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+   <span class="text">Observatory Visit</span> 
+  </li>
+</template>
