@@ -16,6 +16,7 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isClient) {
+
   // This code only runs on the client
   Meteor.subscribe("tasks");
 

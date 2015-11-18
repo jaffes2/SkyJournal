@@ -3,6 +3,48 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+  <script>
+
+   function doMailTo(addr) {
+    location.href = "mailto:"+addr+"?subject=Observation Journal Entry&body="+document.getElementById('editable').textContent;
+  
+    var doc = new jsPDF('p','pt','a4');
+    var content = document.getElementById('editable').textContent;
+
+    /*doc.addHTML($("#editable").get(0), function() {
+       doc.text(20, 30, 'Earth and Sky Journal Entry');
+      doc.save('filename.pdf');
+    });*/
+  
+    doc.text(200, 20, 'Earth and Sky Journal');
+    doc.text(20, 50, content);
+   // doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+//    doc.addPage();
+
+    doc.save('Test.pdf');
+  }
+
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+
+    $('#cmd').click(function () {
+        console.log("downloading...");
+        doc.fromHTML($('#editable').html(), 15, 15, {
+            'width': 170,
+                'elementHandlers': specialElementHandlers
+        });
+        doc.save('sample-file.pdf');
+    });
+
+  </script>
 </head>
 
 <body>
@@ -33,13 +75,16 @@
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
-        <div contentEditable="true" class="editable">
-         3 Moon Observations, 3 Sun Observations, 1 Constellation Observation
+        <div contentEditable="true" id="editable" name="editable" class="editable">
+         
         </div>
 
         <div name="buttons">
           <button class="save">Save</button>
-          <button>Finished</button>
+          <button class="finished">Finished</button>
+          <button id="email" class="email">
+          <a href="javascript:doMailTo('someone@domain.com');"> Email </a>
+          </button>
         </div>
 
       </div>
@@ -70,6 +115,8 @@
   <div class="footer">
     <button>Help</button>
     <button>Resources</button>
+    <div id="editor"></div>
+    <button id="cmd"> PDF </button>
     <button><a href="https://github.com/jaffes2/SkyJournal">Source Code </a></button>
     <h4> Developed by Sarabeth Jaffe </h4> </div>
   </div>
@@ -107,112 +154,3 @@
   </li>
 </template>
 
-<template name="week3">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 3</span> 
-  </li>
-</template>
-
-<template name="week4">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 4</span> 
-  </li>
-</template>
-
-<template name="week5">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 5</span> 
-  </li>
-</template>
-
-<template name="week6">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 6</span> 
-  </li>
-</template>
-
-<template name="week7">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 7</span> 
-  </li>
-</template>
-
-<template name="week8">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 8</span> 
-  </li>
-</template>
-
-<template name="week9">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 9</span> 
-  </li>
-</template>
-
-<template name="week10">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 10</span> 
-  </li>
-</template>
-
-<template name="week11">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Journal Week 11</span> 
-  </li>
-</template>
-
-<template name="special">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Special Occurrence</span> 
-  </li>
-</template>
-
-<template name="observatory">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-  <!--  <button class="delete">&times;</button> -->
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-   <span class="text">Observatory Visit</span> 
-  </li>
-</template>
