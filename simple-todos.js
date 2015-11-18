@@ -1,5 +1,7 @@
 Tasks = new Mongo.Collection("tasks");
 
+var entries = new Array(14);
+
 if (Meteor.isServer) {
   // This code only runs on the server
   // Only publish tasks that are public or belong to the current user
@@ -44,10 +46,21 @@ if (Meteor.isClient) {
       var text = event.target.text.value;
 
       // Insert a task into the collection
-      Meteor.call("addTask", text);
+      Meteor.call("addTask", text, 1);
 
       // Clear form
       event.target.text.value = "";
+    },
+    "click .save": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+
+      var text = $(".editable").text();
+      console.log(text);
+
+      // Insert a task into the collection
+      Meteor.call("addTask", "text", 1);
+
     },
     "change .hide-completed input": function (event) {
       Session.set("hideCompleted", event.target.checked);
@@ -79,7 +92,7 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
-  addTask: function (text) {
+  addTask: function (text, index) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
@@ -89,8 +102,16 @@ Meteor.methods({
       text: text,
       createdAt: new Date(),
       owner: Meteor.userId(),
-      username: Meteor.user().username
+      username: Meteor.user().username,
+      index: index
     });
+
+    entries[index] = text;
+
+    //for(var i = 0; i < entries.length; i++){
+      //entries[i] = Tasks;
+      console.log("index:" + index + " " + entries[index]);
+    //}
   },
   deleteTask: function (taskId) {
     var task = Tasks.findOne(taskId);

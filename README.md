@@ -1,9 +1,6 @@
-# Simple Todo List
+# Observation Journal Application
 
-The Meteor Tutorial app.
+Application for Earth&Sky students to easily keep track of their journal entries.
 
-Use it to share a single todo list with your friends. The list updates on everyone's screen in real time, and you can make tasks private if you don't want others to see them.
+Developed by Sarabeth Jaffe 2015.
 
-Learn how to build this app by following the [Meteor Tutorial](http://www.meteor.com/install).
-
-![screenshot](screenshot.png)
