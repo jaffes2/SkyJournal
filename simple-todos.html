@@ -8,6 +8,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
 
   <script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover(); 
+    });
+  </script>
+
+  <script>
 
    function doMailTo(addr) {
     location.href = "mailto:"+addr+"?subject=Observation Journal Entry&body="+document.getElementById('editable').textContent;
@@ -26,6 +32,7 @@
 //    doc.addPage();
 
     doc.save('Test.pdf');
+
   }
 
     var doc = new jsPDF();
@@ -71,17 +78,22 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Journal Entry 1</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Journal Entry 1: 1/24-1/30</a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
-        <div contentEditable="true" id="editable" name="editable" class="editable">
+        <div contentEditable="true" id="editable" name="editable" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation" class="editable">
          
         </div>
 
         <div name="buttons">
-          <button class="save">Save</button>
-          <button class="finished">Finished</button>
+          
+           <button class="save"><a href="#" data-toggle="popover" data-content="Journal Content Saved.">Save</a></button>
+
+          <button class="finished"><a href="#" data-toggle="popover" title="Finished" data-content="Journal Entry marked as completed.">Mark as Finished</a></button>
+
+          <button id = "cmd" class="pdf"><a href="#" data-toggle="popover" title="Export as PDF" data-content="Downloaded as pdf document.">Export as PDF</a></button>
+
           <button id="email" class="email">
           <a href="javascript:doMailTo('someone@domain.com');"> Email </a>
           </button>
@@ -92,7 +104,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Journal Entry 2</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Journal Entry 2: 1/31-2/6</a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
@@ -102,7 +114,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Journal Entry 3</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Journal Entry 3: 2/7-2/13</a>
         </h4>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
@@ -113,13 +125,18 @@
 </div>
 
   <div class="footer">
-    <button>Help</button>
-    <button>Resources</button>
-    <div id="editor"></div>
-    <button id="cmd"> PDF </button>
+
+    <button><a href="#" data-toggle="popover" title="Help" data-content="Fill in Observation Journals for each week. To save your journals, click the Save button.">Help</a></button>
+
+    <button><a href="http://www.rpi.edu/dept/phys/Astro/Ees/">Course Site </a></button>
+   <!-- <div id="editor"></div>-->
+ 
     <button><a href="https://github.com/jaffes2/SkyJournal">Source Code </a></button>
-    <h4> Developed by Sarabeth Jaffe </h4> </div>
+    <h4> Developed by Sarabeth Jaffe </h4> 
+    <img src="http://s3.postimg.org/naerqk3un/earthandsky.png" alt="logo"> 
+
   </div>
+</div>
 
 
 </body>
