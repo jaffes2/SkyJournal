@@ -1,5 +1,8 @@
 <head>
+
   <title>Earth/Sky</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -59,16 +62,16 @@
     <header>
       <h1>Journal Entries </h1>
 
-      <label class="hide-completed">
+<!--       <label class="hide-completed">
         <input type="checkbox" checked="{{hideCompleted}}" />
-        Hide Completed Tasks
-      </label>
+        Hide Completed Journals
+      </label> -->
 
       {{> loginButtons}}
 
       {{#if currentUser}}
         <form class="new-task">
-          <input type="text" name="text" placeholder="Type to add new tasks" />
+          <input type="text" name="text" placeholder="Type to add new journal" />
         </form>
       {{/if}}
     </header>
@@ -88,14 +91,14 @@
 
         <div name="buttons">
           
-           <button class="save"><a href="#" data-toggle="popover" data-content="Journal Content Saved.">Save</a></button>
+           <button class="pure-button" id="save"><a href="#" data-toggle="popover" data-content="Journal Content Saved.">Save</a></button>
 
-          <button class="finished"><a href="#" data-toggle="popover" title="Finished" data-content="Journal Entry marked as completed.">Mark as Finished</a></button>
+          <button class="pure-button" id="finished"><a href="#" data-toggle="popover" title="Finished" data-content="Journal Entry marked as completed.">Mark as Finished</a></button>
 
-          <button id = "cmd" class="pdf"><a href="#" data-toggle="popover" title="Export as PDF" data-content="Downloaded as pdf document.">Export as PDF</a></button>
+          <button id = "cmd" class="pure-button"><a href="#" data-toggle="popover" title="Export as PDF" data-content="Downloaded as pdf document.">Export as PDF</a></button>
 
-          <button id="email" class="email">
-          <a href="javascript:doMailTo('someone@domain.com');"> Email </a>
+          <button id="email" class="pure-button">
+            <a href="javascript:doMailTo('ta@rpi.edu');"> Email </a>
           </button>
         </div>
 
@@ -121,21 +124,104 @@
         <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
       </div>
     </div>
-  </div> 
-</div>
 
-  <div class="footer">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Journal Entry 4: 2/14-2/20</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
 
-    <button><a href="#" data-toggle="popover" title="Help" data-content="Fill in Observation Journals for each week. To save your journals, click the Save button.">Help</a></button>
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Journal Entry 5: 2/21-2/27</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
 
-    <button><a href="http://www.rpi.edu/dept/phys/Astro/Ees/">Course Site </a></button>
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Journal Entry 6: 2/28-3/5</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Journal Entry 7: 3/6-3/12</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Journal Entry 8: 3/13-3/19</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Journal Entry 9: 3/20-3/26</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Journal Entry 10: 3/27-4/2</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <textarea class="panel-body" placeholder="3 Moon Observations, 3 Sun Observations, 1 Constellation Observation"></textarea>
+      </div>
+    </div>
+
+      <div class="footer">
+
+    <button class="pure-button"><a href="#" data-toggle="popover" title="Help" data-content="Fill in Observation Journals for each week. To save your journals, click the Save button.">Help</a></button>
+
+    <button class="pure-button"><a href="http://www.rpi.edu/dept/phys/Astro/Ees/" target="_blank">Course Site </a></button>
    <!-- <div id="editor"></div>-->
  
-    <button><a href="https://github.com/jaffes2/SkyJournal">Source Code </a></button>
-    <h4> Developed by Sarabeth Jaffe </h4> 
+    <button class="pure-button"><a href="https://github.com/jaffes2/SkyJournal" target="_blank">Source Code </a></button>
+    <button class="pure-button"><a href="https://www.rollapp.com/app/stellarium" target="_blank">Stellarium Online </a></button>
+
+    <h4> Developed by Sarabeth Jaffe for</h4> 
     <img src="http://s3.postimg.org/naerqk3un/earthandsky.png" alt="logo"> 
 
   </div>
+
+
+    
+  </div> 
+</div>
+
 </div>
 
 
